@@ -4,6 +4,8 @@ buildscript {
         maven { url "https://repo.grails.org/grails/core" }
     }
     dependencies {
+        classpath "jp.classmethod.aws:gradle-aws-plugin:0.29"
+        classpath "com.github.jengelman.gradle.plugins:shadow:1.2.3"
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.14.1"
         classpath "org.grails.plugins:hibernate5:${gormVersion-".RELEASE"}"
@@ -48,12 +50,12 @@ dependencies {
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
 
-    compile 'org.grails.plugins:aws-sdk-s3:2.1.5'
-    compile 'org.grails.plugins:aws-sdk-dynamodb:2.1.5'
-    compile 'org.grails.plugins:aws-sdk-kinesis:2.1.5'
-    compile 'org.grails.plugins:aws-sdk-ses:2.1.5'
-    compile 'org.grails.plugins:aws-sdk-sns:2.1.5'
-    compile 'org.grails.plugins:aws-sdk-sqs:2.1.5'
+    compile 'org.grails.plugins:aws-sdk-s3:2.1.18'
+    compile 'org.grails.plugins:aws-sdk-dynamodb:2.1.18'
+    compile 'org.grails.plugins:aws-sdk-kinesis:2.1.18'
+    compile 'org.grails.plugins:aws-sdk-ses:2.1.18'
+    compile 'org.grails.plugins:aws-sdk-sns:2.1.18'
+    compile 'org.grails.plugins:aws-sdk-sqs:2.1.18'
 
 }
 
@@ -67,3 +69,6 @@ assets {
     minifyJs = true
     minifyCss = true
 }
+
+
+
