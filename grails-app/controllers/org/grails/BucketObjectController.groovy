@@ -48,11 +48,12 @@ class BucketObjectController {
   }
 
   def create = {
-    render "edit not implemented"
+    [bucketName:params.id]
   }
 
   def save = {
-    render "edit not implemented"
+    String newKey = amazonS3Service.storeMultipartFile(params.bucketName,params.key,params.file)
+    redirect(action:"list", params: [id:params.bucketName, key:newKey])
   }
 
 
