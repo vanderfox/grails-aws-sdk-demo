@@ -21,8 +21,17 @@ class BucketObjectController {
   def list = {
     params.max = Math.min(params.max ? params.int('max') : 5, 100)
     ObjectListing bucketObjects
-    if (flash.bucketObjects && params.page == 'next') {
-      bucketObjects = amazonS3Service.client.listNextBatchOfObjects(flash.bucketObjects)
+    if (params.page == 'next') {
+      def lstObjReq = new ListObjectsRequest()
+      lstObjReq.setBucketName(params.id)
+      lstObjReq.setMaxKeys(params.max)
+      bucketObjects = amazonS3Service.client.listObjects(lstObjReq)
+      bucketObjects = amazonS3Service.client.listNextBatchOfObjects(bucketObjects)
+      if (flash.page) {
+          flash.page += 1
+      } else {
+          flash.page = 1
+      }
       flash.page += 1
     } else {
       def lstObjReq = new ListObjectsRequest()

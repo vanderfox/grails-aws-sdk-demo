@@ -54,10 +54,10 @@
 <br>
 <% if (flash.page) { %>
 <div class="paginateButtons">
-  <a href="/s3browser/bucketObject/list/${bucketName}" class="prevLink">First</a>
+  <a href="/bucketObject/list/${bucketName}" class="prevLink">First</a>
   Page: ${flash.page}
   <% if (flash.bucketObjects) { %>
-    <a href="/s3browser/bucketObject/list/${bucketName}?page=next" class="prevLink">Next</a>
+    <a href="/bucketObject/list/${bucketName}?page=next" class="prevLink">Next</a>
   <% } %>
 </div>
 <% } %>
