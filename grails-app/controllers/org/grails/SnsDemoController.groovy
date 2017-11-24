@@ -6,11 +6,11 @@ class SnsDemoController {
 
     SnsDemoService snsDemoService
 
-    def index() { }
+
 
     def startSnsDemo () {
 
-        snsDemoService.sendSnsTopic("arn:aws:sns:us-east-1:057654311259:G3Summit","G3Summit Notification", "Hello Austin!!")
+        render "Message:${snsDemoService.sendSnsTopic("arn:aws:sns:us-east-1:057654311259:G3Summit","G3Summit Notification", "Hello Austin!!")}"
 
     }
 

@@ -9,18 +9,13 @@ class SnsDemoService {
 
     AmazonSNSService amazonSNSService
 
-    boolean sendSnsTopic(String arn, String subject, String message) {
+    String sendSnsTopic(String arn, String subject, String message) {
 
-        PublishResult result = amazonSNSService.publishTopic(
+          amazonSNSService.publishTopic(
                 arn,
                 subject,
                 message)
 
-        if (result.messageId) {
-            true
-        } else {
-            false
-        }
 
     }
 

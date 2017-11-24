@@ -19,12 +19,12 @@ class KinesisDemoService {
         ByteBuffer dataBuffer = ByteBuffer.wrap(jsonData.bytes)
         PutRecordsRequestEntry recordRequest = new PutRecordsRequestEntry(data: dataBuffer,
                 partitionKey: "partitionKey-${System.currentTimeMillis()}".toString())
-        PutRecordsResult resultRecords = amazonKinesisService.putRecords("demoStream", [recordRequest])
+        PutRecordsResult resultRecords = amazonKinesisService.putRecords("g3summit", [recordRequest])
         if (resultRecords) {
             if (log.isDebugEnabled()) {
-                log.debug("email failed kinesis record count:${resultRecords.failedRecordCount}")
+                log.debug("failed kinesis record count:${resultRecords.failedRecordCount}")
                 resultRecords.records.each { putResultRecord ->
-                    log.debug("email kinesis record request: ${putResultRecord.toString()}")
+                    log.debug("kinesis record request: ${putResultRecord.toString()}")
                 }
             }
             if (resultRecords.failedRecordCount > 0) {

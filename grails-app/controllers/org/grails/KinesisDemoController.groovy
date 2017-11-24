@@ -14,6 +14,7 @@ class KinesisDemoController {
         Map kinesisParams = [groovy:"isFun", grails:"Rocks", awsWithGroovy:"awesome", g3summit:"hey there Austin!"]
 
         kinesisDemoService.sendToKinesis(kinesisParams)
+        render "message sent!"
 
     }
 }
